@@ -1,0 +1,11 @@
+{
+    "name": "surreal/modern_php_without_framework",
+    "description": "An example of a modern PHP application bootstrapped without a framework.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Surreal\\ModernPhpWithoutFramework\\": "src/"
+        }
+    },
+    "require": {}
+}
