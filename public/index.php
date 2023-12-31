@@ -8,6 +8,7 @@ use FastRoute\RouteCollector;
 use Middlewares\FastRoute;
 use Middlewares\requestHandler;
 use Relay\Relay;
+use Laminas\Diactoros\Response;
 use Laminas\Diactoros\ServerRequestFactory;
 use function DI\create;
 use function FastRoute\SimpleDispatcher;
@@ -20,8 +21,11 @@ $containerBuilder->useAutowiring(false);
 $containerBuilder->useAttributes(false);
 $containerBuilder->addDefinitions([
 	HelloWorld::class => create(HelloWorld::class)
-		->constructor(get('Foo')),
-	'Foo' => 'bar'
+		->constructor(get('Foo'), get('Response')),
+	'Foo' => 'bar',
+	'Response' => function() {
+		return new Response();
+	}
 ]);
 
 $container = $containerBuilder->build();
