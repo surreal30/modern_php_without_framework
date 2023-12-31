@@ -6,8 +6,9 @@ namespace NoFrameworkApp;
 
 class HelloWorld
 {
-	public function announce(): void
+	public function __invoke(): void
 	{
 		echo "Hello, autoload world";
+		exit();
 	}
 }
