@@ -6,9 +6,15 @@ namespace NoFrameworkApp;
 
 class HelloWorld
 {
+	private $foo;
+
+	public function __construct(string $foo)
+	{
+		$this->foo = $foo;
+	}
 	public function __invoke(): void
 	{
-		echo "Hello, autoload world";
+		echo "Hello, {$this->foo} world";
 		exit();
 	}
 }
